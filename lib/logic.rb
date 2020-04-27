@@ -18,6 +18,7 @@ class Logic
     ind = 0
     while ind < 3
       if board.grid[ind].all? { |x| x == symbol }
+        p "A"
         break
         return true
       end
@@ -28,9 +29,11 @@ class Logic
   end
 
   def check_columns(symbol)
+    ind = 0
     while ind < 3
       if @board[[ind, 0]] == symbol && @board[[ind, 0]] == symbol && @board[[ind, 0]] == symbol
         return true
+        p "B"
       end
       ind += 1
       return false
@@ -39,24 +42,26 @@ class Logic
 
   def check_diagonals(symbol)
     if @board[[0,0]] == symbol && @board[[1,1]] == symbol && @board[[2,2]] == symbol
+      p "C"
       return true
     elsif @board[[2,0]] == symbol && @board[[1,1]] == symbol && @board[[0,2]] == symbol
+      p "C"
       return true
     else
       return false
     end
   end
 
-  def win?
-    if check_rows || check_diagonals || check_columns 
+  def win?(symbol)
+    if check_rows(symbol) || check_diagonals(symbol) || check_columns(symbol) 
       true
     else
       false
     end
   end
 
-  def game_over?
-    if win? || @board.full?
+  def game_over?(symbol)
+    if win?(symbol) || @board.full?
       true
     else
       false
