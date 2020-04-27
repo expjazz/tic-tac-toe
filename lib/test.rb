@@ -1,6 +1,7 @@
 require_relative 'logic'
 require_relative 'player'
 require_relative 'board'
+require 'byebug'
 
 puts "Welcome to tic-tac-to game"
 
@@ -12,7 +13,7 @@ player1_symbol = gets.chomp
 puts "Player 2 please enter your name"
 player2_name = gets.chomp
 puts "#{player2_name} please enter symbol you want to use"
-player1_symbol = gets.chomp
+player2_symbol = gets.chomp
 
 game = Logic.new(player1_name, player1_symbol, player2_name, player1_symbol)
 
@@ -23,7 +24,7 @@ player_turn = 1
   if player_turn.odd?
     puts "#{player1_name} please enter your move"
     move = gets.chomp
-    game.board.move(player1_symbol, game.player_1.player_move(move))
+    game.board.move(player1_symbol, move)
     if game.game_over?(player1_symbol)
       #puts "congratulations #{player1_name} you have won the game"
       break
@@ -31,7 +32,7 @@ player_turn = 1
   elsif player_turn.even?
     puts "#{player2_name} please enter your move"
     move = gets.chomp
-    game.board.move(player2_symbol, game.player_2.player_move(move))
+    game.board.move(player2_symbol, move)
     if game.game_over?(player2_symbol)
       #puts "congratulations #{player2_name} you have won the game"
       break

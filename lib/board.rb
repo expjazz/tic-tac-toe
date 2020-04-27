@@ -23,11 +23,16 @@ class Board
   end
 
   def move(symbol, position)
-    self[position] = symbol
+    arr = position.split("")
+    arr_2 = []
+    arr_2 << arr[0].to_i
+    arr_2 << arr[1].to_i
+    arr_2
+    self[arr_2] = symbol
   end
 
   def full?
-    if @grid.any? { |x| x == "-" }
+    if @grid.each { |row| true if row.any? { |x| x == "-" } }
       false
     else
       true
@@ -37,6 +42,6 @@ end
 
 board = Board.new
 
-# board.move('x', [0, 0])
+# board.move('x', "0, 1")
 
-# board.grid[0].each { |x| p x }
+# board.display_board

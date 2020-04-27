@@ -18,7 +18,6 @@ class Logic
     ind = 0
     while ind < 3
       if board.grid[ind].all? { |x| x == symbol }
-        p "A"
         break
         return true
       end
@@ -31,9 +30,8 @@ class Logic
   def check_columns(symbol)
     ind = 0
     while ind < 3
-      if @board[[ind, 0]] == symbol && @board[[ind, 0]] == symbol && @board[[ind, 0]] == symbol
+      if @board[[0, ind]] == symbol && @board[[1, ind]] == symbol && @board[[2, ind]] == symbol
         return true
-        p "B"
       end
       ind += 1
       return false
@@ -42,10 +40,8 @@ class Logic
 
   def check_diagonals(symbol)
     if @board[[0,0]] == symbol && @board[[1,1]] == symbol && @board[[2,2]] == symbol
-      p "C"
       return true
     elsif @board[[2,0]] == symbol && @board[[1,1]] == symbol && @board[[0,2]] == symbol
-      p "C"
       return true
     else
       return false
