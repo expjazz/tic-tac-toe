@@ -35,12 +35,16 @@ class Logic
       ind += 1
       return false
     end
-
-
   end
 
-  def check_diagonals
-
+  def check_diagonals(symbol)
+    if @board[[0,0]] == symbol && @board[[1,1]] == symbol && @board[[2,2]] == symbol
+      return true
+    elsif @board[[2,0]] == symbol && @board[[1,1]] == symbol && @board[[0,2]] == symbol
+      return true
+    else
+      return false
+    end
   end
 
   def win?
