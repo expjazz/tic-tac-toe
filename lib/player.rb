@@ -7,6 +7,3 @@ class Player
   end
 
 end
-# def player_move(position)
-
-# end

@@ -51,6 +51,7 @@ class Logic
   def win?(symbol)
     if check_rows(symbol) || check_diagonals(symbol) || check_columns(symbol) 
       true
+      @board.display_board
     else
       false
     end
@@ -62,5 +63,25 @@ class Logic
     else
       false
     end
-  end   
+  end
+  
+  def str_int(move)
+    arr = move.split("")
+    arr_2 = []
+    arr_2 << arr[0].to_i - 1
+    arr_2 << arr[1].to_i - 1
+    arr_2
+  end
+
+  def valid_move?(move)
+    validation = false
+    if move.include?(" ")
+      validation = false
+    elsif @board[str_int(move)] != "-"
+      puts "Position filled. Try another"
+    elsif ("1".."3").include?(move[0]) && ("1".."3").include?(move[1])
+      validation = true
+    end   
+  end
 end
+

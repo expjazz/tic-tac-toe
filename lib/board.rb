@@ -23,12 +23,7 @@ class Board
   end
 
   def move(symbol, position)
-    arr = position.split("")
-    arr_2 = []
-    arr_2 << arr[0].to_i
-    arr_2 << arr[1].to_i
-    arr_2
-    self[arr_2] = symbol
+    self[position] = symbol
   end
 
   def full?
@@ -40,8 +35,3 @@ class Board
   end
 end
 
-board = Board.new
-
-# board.move('x', "0, 1")
-
-# board.display_board
