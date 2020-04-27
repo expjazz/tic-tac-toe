@@ -2,10 +2,10 @@ class Board
   attr_accessor :grid
   attr_reader :size
   def initialize
-    @grid = Array.new(3){Array.new(3, "-")}
+    @grid = Array.new(3) { Array.new(3, '-') }
     @size = 3 * 3
   end
-  
+
   def display_board
     puts " #{grid[0][0]} | #{grid[0][1]} | #{grid[0][2]} "
     puts " #{grid[1][0]} | #{grid[1][1]} | #{grid[1][2]} "
@@ -27,11 +27,10 @@ class Board
   end
 
   def full?
-    if @grid.each { |row| true if row.any? { |x| x == "-" } }
+    if @grid.each { |row| true if row.any? { |x| x == '-' } }
       false
     else
       true
     end
   end
 end
-

@@ -5,5 +5,4 @@ class Player
     @symbol = symbol
     @move = ''
   end
-
 end
