@@ -22,19 +22,29 @@ player_turn = 1
 9.times do
   game.board.display_board
   if player_turn.odd?
-    puts "#{player1_name} please enter your move"
+    puts "#{player1_name} please enter your move (2 numeric digits) without space"
+    puts "first value for row and second value for column"
+    puts "forexample(00)"
     move = gets.chomp
     game.board.move(player1_symbol, move)
-    if game.game_over?(player1_symbol)
-      #puts "congratulations #{player1_name} you have won the game"
+    if game.win?(player1_symbol) 
+      puts "congratulation #{player1_name} you have won"
+      break
+    elsif game.board.full?
+      puts"#{player1_name} and #{player2_name} you draw!!"
       break
     end
   elsif player_turn.even?
-    puts "#{player2_name} please enter your move"
+    puts "#{player2_name} please enter your move (2 numeric digits) without space"
+    puts "first value for row and second value for column"
+    puts "forexample(00)"
     move = gets.chomp
     game.board.move(player2_symbol, move)
-    if game.game_over?(player2_symbol)
-      #puts "congratulations #{player2_name} you have won the game"
+    if game.win?(player2_symbol) 
+      puts "congratulation #{player2_name} you have won"
+      break
+    elsif game.board.full?
+      puts"#{player1_name} and #{player2_name} you draw!!"
       break
     end
   end
