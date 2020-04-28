@@ -2,6 +2,7 @@
 
 require_relative 'board'
 require_relative 'player'
+require 'byebug'
 
 # rubocop:disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
 class Logic
@@ -31,10 +32,12 @@ class Logic
   def check_columns(symbol)
     ind = 0
     while ind < 3
-      return true if @board[[0, ind]] == symbol && @board[[1, ind]] == symbol && @board[[2, ind]] == symbol
-
+      if @board[[0, ind]] == symbol && @board[[1, ind]] == symbol && @board[[2, ind]] == symbol
+        return true 
+      else
+        return false
+      end
       ind += 1
-      return false
     end
   end
 
