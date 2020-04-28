@@ -4,9 +4,9 @@ require_relative 'player'
 # rubocop:disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
 class Logic
   attr_accessor :player_1, :player_2, :board
-  def initialize(name_1, symbol_1, name_2, symbol_2)
-    @player_1 = Player.new(name_1, symbol_1)
-    @player_2 = Player.new(name_2, symbol_2)
+  def initialize(name_one, symbol_one, name_two, symbol_two)
+    @player_one = Player.new(name_one, symbol_one)
+    @player_two = Player.new(name_two, symbol_two)
     @board = Board.new
   end
 
@@ -18,9 +18,8 @@ class Logic
   def check_rows(symbol)
     ind = 0
     while ind < 3
-      if board.grid[ind].all? { |x| x == symbol }
-        break
-      end
+      return true if board.grid[ind].all? { |x| x == symbol }
+
       ind += 1
     end
     false
@@ -65,23 +64,47 @@ class Logic
 
   def str_int(move)
     arr = move.split('')
-    arr_2 = []
-    arr_2 << arr[0].to_i - 1
-    arr_2 << arr[1].to_i - 1
-    arr_2
+    arr_two = []
+    arr_two << arr[0].to_i - 1
+    arr_two << arr[1].to_i - 1
+    arr_two
   end
 
   def valid_move?(move)
-    validation = false
-    if ('1'..'3').include?(move[0]) && ('1'..'3').include?(move[1])
-      validation = true
-    elsif ('1'..'3').include?(move[0]) == false || ('1'..'3').include?(move[1]) == false
-      puts 'Invalid move. Try again with values from 1 to 3'
-    elsif @board[str_int(move)] != '-'
-      puts 'Position filled. Try another'
-    end
-    validation
+    return true if ('1'..'3').include?(move[0]) && ('1'..'3').include?(move[1]) && @board[str_int(move)] == '-'
+
+    false
   end
 
+  def get_move(move)
+    move_test = false
+    while move_test == false
+      if valid_move?(move)
+        move_test = true
+        return move
+      else
+        puts 'Invalid move. Try again.'
+        return get_move(gets.chomp)
+      end
+    end
+  end
+
+  def reset_game
+    type = false
+    while type == false
+      reply = gets.chomp
+      if reply.include?('yes') || reply.include?('no')
+        type = true
+      else
+        puts 'wrong answer type(yes/no)'
+      end
+    end
+    if reply == 'yes'
+      @board.grid = Array.new(3) { Array.new(3, '-') }
+      1
+    else
+      20
+    end
+  end
   # rubocop:enable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
 end
