@@ -4,14 +4,18 @@ puts 'Welcome to tic-tac-to game'
 
 puts 'Player 1 please enter your name'
 player1_name = gets.chomp
+puts 'check if input is valid'
 puts "#{player1_name} please enter symbol you want to use"
 player1_symbol = gets.chomp
+puts 'check if input is valid'
 p player1_symbol
 
 puts 'Player 2 please enter your name'
 player2_name = gets.chomp
+puts 'check if input is valid'
 puts "#{player2_name} please enter symbol you want to use"
 player2_symbol = gets.chomp
+puts 'check if input is valid'
 p player2_symbol
 
 game_over = false
