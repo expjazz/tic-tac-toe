@@ -17,11 +17,11 @@ This game is a virtual implementation of the classic and fun tic-tac-toe game.
 (rowcolumn)
 (11)
 
-| (1) | (2) | (3) |
+| (11) | (12) | (13) |
 -------------------
-| (4) | (5) | (6) |
+| (21) | (22) | (23) |
 -------------------
-| (7) | (8) | (9) |
+| (31) | (32) | (33) |
 -------------------
 
 A winning position would like the image below at the end. As soon as someone gets three of their marks in a row, the game ends.
