@@ -19,7 +19,7 @@ player2_symbol = gets.chomp
 game = Logic.new(player1_name, player1_symbol, player2_name, player1_symbol)
 player_turn = 1
 
-while player_turn < 11
+while player_turn < 10
   game.board.display_board
   if player_turn.odd?
     puts "#{player1_name} please enter your move (2 numeric digits) from 1 to 3 without space"
@@ -45,5 +45,11 @@ while player_turn < 11
     end
   end
   player_turn += 1
-  puts "#{player1_name} and #{player2_name} you draw!!" if player_turn > 9
+  if player_turn == 10 && game.win?(player2_symbol) == false && game.win?(player1_symbol) == false
+    puts "#{player1_name} and #{player2_name} you draw!!"
+    game.board.display_board
+    puts 'do you want to play another game answer(yes/no)'
+    player_turn = game.reset_game
+  end
+  puts 'game_over' if player_turn == 20
 end
