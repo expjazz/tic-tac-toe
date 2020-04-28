@@ -17,14 +17,22 @@ This game is a virtual implementation of the classic and fun tic-tac-toe game.
 (rowcolumn)
 (11)
 
-| (11) | (12) | (13) |
-| (21) | (22) | (23) |
-| (31) | (32) | (33) |
+| (1) | (2) | (3) |
+-------------------
+| (4) | (5) | (6) |
+-------------------
+| (7) | (8) | (9) |
+-------------------
 
 A winning position would like the image below at the end. As soon as someone gets three of their marks in a row, the game ends.
-| O | X | O |
-| X | X | X | --- Player 'X' wins with this row!
-| O | O | O |
+
+|  O  |  X  |  O  | 
+-------------------
+|  X  |  X  |  X  |  --- *Player 'X' wins with this row!*
+-------------------
+|  O  |  O  |  O  |
+-------------------
+
 For a detailed explanation, please have a look at this [guide](https://www.wikihow.com/Play-Tic-Tac-Toe).
 
 ![screenshot](./screenshot.png)
@@ -36,8 +44,9 @@ For a detailed explanation, please have a look at this [guide](https://www.wikih
 - Rubocop
 
 ## Live Demo
+- To play the game, click on the link below and then on the top green button with the label run.
 
-[Live Demo Link](https://repl.it/@expjazz/ProperDramaticMosaic)
+[Live Demo Link](https://repl.it/@expjazz/tic-tac-toe)
 
 ## Getting Started
 
@@ -50,7 +59,7 @@ To get a local copy up and running follow these simple example steps.
 ### Usage
 
 - Clone the project to your local machine
-- Open the main.rb file on your terminal
+- To play it, open the main.rb file on your terminal
 
 ## Author
 
