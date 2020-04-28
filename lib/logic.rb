@@ -48,8 +48,8 @@ class Logic
 
   def win?(symbol)
     if check_rows(symbol) || check_diagonals(symbol) || check_columns(symbol)
-      true
       @board.display_board
+      true
     else
       false
     end
