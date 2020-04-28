@@ -5,7 +5,8 @@ require_relative 'player'
 
 # rubocop:disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
 class Logic
-  attr_accessor :player_1, :player_2, :board
+  attr_reader :player_1, :player_2
+  attr_accessor :board
   def initialize(name_one, symbol_one, name_two, symbol_two)
     @player_one = Player.new(name_one, symbol_one)
     @player_two = Player.new(name_two, symbol_two)
@@ -78,35 +79,21 @@ class Logic
     false
   end
 
-  def get_move(move)
-    move_test = false
-    while move_test == false
-      if valid_move?(move)
-        move_test = true
-        return move
+  def reset_game(reply)
+    if reply(reply) == true
+      if reply == 'yes'
+        @board.grid = Array.new(3) { Array.new(3, '-') }
+        return 1, true
       else
-        puts 'Invalid move. Try again.'
-        return get_move(gets.chomp)
+        return 20, true
       end
+    else
+      return 2, false
     end
   end
 
-  def reset_game
-    type = false
-    while type == false
-      reply = gets.chomp
-      if reply.include?('yes') || reply.include?('no')
-        type = true
-      else
-        puts 'wrong answer type(yes/no)'
-      end
-    end
-    if reply == 'yes'
-      @board.grid = Array.new(3) { Array.new(3, '-') }
-      1
-    else
-      20
-    end
+  def reply(reply)
+    true if reply.include?('yes') || reply.include?('no')
   end
   # rubocop:enable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
 end
