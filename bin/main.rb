@@ -20,7 +20,7 @@ game = Logic.new(player1_name, player1_symbol, player2_name, player1_symbol)
 player_turn = 1
 
 while player_turn < 10
-  game.board.display_board
+  puts game.board.display_board
   if player_turn.odd?
     puts "#{player1_name} please enter your move (2 numeric digits) from 1 to 3 without space"
     puts 'first value for row and second value for column'
@@ -34,9 +34,10 @@ while player_turn < 10
         p 'invalid move'
       end
     end
-    game.board.move(player1_symbol, game.str_int(move))
+    game.board.move(player1_symbol, game.str_int(move)) 
     if game.win?(player1_symbol)
       puts "congratulation #{player1_name} you have won"
+      puts game.board.display_board
       puts 'do you want to play another game answer(yes/no)'
       validation = false
       while validation == false
@@ -61,6 +62,7 @@ while player_turn < 10
     game.board.move(player2_symbol, game.str_int(move))
     if game.win?(player2_symbol)
       puts "congratulation #{player2_name} you have won"
+      puts game.board.display_board
       puts 'do you want to play another game answer(yes/no)'
       validation = false
       while validation == false
@@ -75,7 +77,7 @@ while player_turn < 10
   player_turn += 1
   if player_turn == 10 && game.win?(player2_symbol) == false && game.win?(player1_symbol) == false
     puts "#{player1_name} and #{player2_name} you draw!!"
-    game.board.display_board
+    p game.board.display_board
     puts 'do you want to play another game answer(yes/no)'
     validation = false
     while validation == false

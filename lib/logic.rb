@@ -1,6 +1,5 @@
 require_relative 'board'
 require_relative 'player'
-require 'byebug'
 
 # rubocop:disable Metrics/PerceivedComplexity, Metrics/CyclomaticComplexity
 class Logic
@@ -51,7 +50,6 @@ class Logic
 
   def win?(symbol)
     if check_rows(symbol) || check_diagonals(symbol) || check_columns(symbol)
-      @board.display_board
       true
     else
       false
