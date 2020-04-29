@@ -59,7 +59,10 @@ To get a local copy up and running follow these simple example steps.
 ### Usage
 
 - Clone the project to your local machine
-- To play it, open the main.rb file on your terminal
+
+## Instructions
+
+- Open the file of the project on your terminal, and then type bin/main.rb and press enter.
 
 ## Author
 
