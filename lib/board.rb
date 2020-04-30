@@ -10,7 +10,6 @@ class Board
     "#{grid[0][0]} | #{grid[0][1]} | #{grid[0][2]}\n#{grid[1][0]} | #{grid[1][1]} | #{grid[1][2]}\n#{grid[2][0]} | #{grid[2][1]} | #{grid[2][2]} "
   end
 
-
   def [](position)
     x, y = position
     @grid[x][y]
@@ -23,13 +22,5 @@ class Board
 
   def move(symbol, position)
     self[position] = symbol
-  end
-
-  def full?
-    if @grid.each { |row| true if row.any? { |x| x == '-' } }
-      false
-    else
-      true
-    end
   end
 end
