@@ -11,11 +11,6 @@ class Logic
     @board = Board.new
   end
 
-  def turn(symbol, position)
-    @board.move(symbol, position)
-    @board.display_board
-  end
-
   def check_rows(symbol)
     ind = 0
     while ind < 3
@@ -30,10 +25,11 @@ class Logic
     ind = 0
     while ind < 3
       if @board[[0, ind]] == symbol && @board[[1, ind]] == symbol && @board[[2, ind]] == symbol
-        return true 
+        return true
       else
         return false
       end
+
       ind += 1
     end
   end
@@ -50,14 +46,6 @@ class Logic
 
   def win?(symbol)
     if check_rows(symbol) || check_diagonals(symbol) || check_columns(symbol)
-      true
-    else
-      false
-    end
-  end
-
-  def game_over?(symbol)
-    if win?(symbol) || @board.full?
       true
     else
       false
@@ -82,12 +70,12 @@ class Logic
     if reply(reply) == true
       if reply == 'yes'
         @board.grid = Array.new(3) { Array.new(3, '-') }
-        return 1, true
+        [1, true]
       else
-        return 20, true
+        [20, true]
       end
     else
-      return 2, false
+      [2, false]
     end
   end
 
