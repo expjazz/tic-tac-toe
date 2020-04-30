@@ -4,6 +4,8 @@
 
 This game is a virtual implementation of the classic and fun tic-tac-toe game.
 
+We also used rspec to test all the public methods to ensure that all the game logic is working properly
+
 ## RULES FOR TIC-TAC-TOE
 - The game is played on a grid that's 3 squares by 3 squares.
 
@@ -37,11 +39,16 @@ For a detailed explanation, please have a look at this [guide](https://www.wikih
 
 ![screenshot](./screenshot.png)
 
+## test cases
+
+![screenshot](./test_cases.PNG)
+
 ## Built With
 
 - Ruby
 - Vs Code
 - Rubocop
+- rspec
 
 ## Live Demo
 - To play the game, click on the link below and then on the top green button with the label run.
@@ -55,6 +62,7 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 - Ruby
+- rspec
 
 ### Usage
 
@@ -63,6 +71,7 @@ To get a local copy up and running follow these simple example steps.
 ## Instructions
 
 - Open the file of the project on your terminal, and then type bin/main.rb and press enter.
+- To run the test cases, open the root folder in your terminal and run the rspec command
 
 ## Author
 

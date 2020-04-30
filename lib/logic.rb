@@ -52,14 +52,6 @@ class Logic
     end
   end
 
-  def game_over?(symbol)
-    if win?(symbol) || @board.full?
-      true
-    else
-      false
-    end
-  end
-
   def str_int(move)
     arr = move.split('')
     arr_two = []

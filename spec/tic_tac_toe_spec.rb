@@ -150,4 +150,71 @@ describe Logic do
       expect(game.win?('X')).to_not be(true)
     end
   end
+
+  describe '#str_int' do
+    it 'should accpt a string as an argument' do
+      expect { game.str_int('11') }.to_not raise_error
+    end
+
+    it 'should convert the string into a list of two integers and returns it' do
+      result = game.str_int('11')
+      expect(result[0]).to be_an(Integer)
+    end
+
+    it 'should reduce the value of every index by one after a move has been provided' do
+      expect(game.str_int('11')).to eql([0, 0])
+    end
+  end
+
+  describe '#valid_move' do
+    it 'should accpt a move as an argument' do
+      expect { game.valid_move?('12') }.to_not raise_error
+    end
+
+    it 'should retutn true if a move is valid' do
+      expect(game.valid_move?('21')).to be(true)
+    end
+
+    it 'should retutn false if a move is invalid' do
+      expect(game.valid_move?('67')).to_not be(true)
+    end
+
+    it 'should retutn false if a move contains anything other than two integers' do
+      expect(game.valid_move?('word')).to_not be(true)
+    end
+  end
+
+  describe '#reset_game' do
+    it 'should accept a reply as an argument' do
+      expect { game.reset_game('yes') }.to_not raise_error
+    end
+
+    it 'it should return an array of a number and a condition' do
+      expect(game.reset_game('yes')).to eql([1, true])
+    end
+
+    it 'it should set a new grid if reply == yes' do
+      game.reset_game('yes')
+      expect(board[[0, 0]]).to eql('-')
+    end
+
+    it 'should return an array with 20 and true condition as values
+    when the reply is not a yes' do
+      expect(game.reset_game('no')).to eql([20, true])
+    end
+
+    it 'should return an array with 2 and false if the reply functions returns false' do
+      expect(game.reset_game('invalid reply')).to eql([2, false])
+    end
+  end
+
+  describe '#reply' do
+    it 'should accept reply as an argument' do
+      expect { game.reply('yes') }.to_not raise_error
+    end
+
+    it 'should return true if reply is yes or no' do
+      expect(game.reply('yes')).to be(true)
+    end
+  end
 end

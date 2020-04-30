@@ -34,7 +34,7 @@ while player_turn < 10
         p 'invalid move'
       end
     end
-    game.board.move(player1_symbol, game.str_int(move)) 
+    game.board.move(player1_symbol, game.str_int(move))
     if game.win?(player1_symbol)
       puts "congratulation #{player1_name} you have won"
       puts game.board.display_board
@@ -88,4 +88,3 @@ while player_turn < 10
   end
   puts 'game_over' if player_turn == 20
 end
-
